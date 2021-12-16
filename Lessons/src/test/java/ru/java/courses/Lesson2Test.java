@@ -17,7 +17,9 @@ public class Lesson2Test {
 
     @Test
     public void formula() {
-        assertEquals(5, Lesson2.formula(1), "y(1) = 5");
+        assertEquals(5,
+                Lesson2.formula(1),
+                "y(1) = 5");
         assertEquals(13, Lesson2.formula(15), "y(15) = 13");
         assertEquals(44, Lesson2.formula(155), "y(155) = 44");
     }

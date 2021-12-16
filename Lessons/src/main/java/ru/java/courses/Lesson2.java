@@ -9,10 +9,11 @@ class Lesson2 {
      * @param x на текущем этапе входное значение будет больше нуля
      *
      * @return возвращаем только целую часть от полученного результата,
-     * хвост отбрасываем без откругления
+     * хвост отбрасываем без округления
      */
     static int formula(int x) {
-        return 0;
+
+        return (int) Math.sqrt(13 * x + 13 / x);
     }
 
     /**
@@ -29,7 +30,14 @@ class Lesson2 {
      * @return возвращаем инициалы в верхнем регистре разделенные точкой, как в примере выше
      */
     static String initials(String fullName) {
-        return null;
+        String[] splittedName = fullName.split(" ");
+        String initials = "";
+
+        for (String s : splittedName) {
+            initials += s.charAt(0) + ".";
+        }
+
+        return initials.toUpperCase();
     }
 
 }
