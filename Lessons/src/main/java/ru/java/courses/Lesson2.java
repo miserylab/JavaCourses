@@ -33,9 +33,9 @@ class Lesson2 {
         String[] splittedName = fullName.split(" ");
         String initials = "";
 
-        for (String s : splittedName) {
-            initials += s.charAt(0) + ".";
-        }
+        initials += splittedName[0].charAt(0) + ".";
+        initials += splittedName[1].charAt(0) + ".";
+        initials += splittedName[2].charAt(0) + ".";
 
         return initials.toUpperCase();
     }
