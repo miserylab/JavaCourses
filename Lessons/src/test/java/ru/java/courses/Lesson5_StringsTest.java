@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 public class Lesson5_StringsTest {
 
     @Test
-    void task1test(String[] strings) {
+    void task1test() {
         assertEquals(
                 task1(new String[]{"abc", "123", "ABC", "abc", "qwerty", "aBc", "123", "QwErTy"}),
                 "abc123ABCqwertyaBcQwErTy"
@@ -27,13 +27,16 @@ public class Lesson5_StringsTest {
     }
 
     @Test
-    void task2test(String[][] pairs) {
+    void task2test() {
         assertArrayEquals(
                 task2(new String[][]{
                         new String[]{"Розы и шипы", "Андрей С. Долгов"},
                         new String[]{"Фантастика\"", "Ф. Н. Ковров"},
                         new String[]{"\"Считалочка", "С. Никифорович Тестов"},
                         new String[]{"\"Программист\"", "Андрей К. Иванов"},
+                        new String[]{"\"Программист++\"", "А.К.Иванов"}, //в ФИО отсутствуют пробелы
+                        new String[]{"\"Программист--\"", "А.К         Иванов"}, //в ФИО лишние пробелы
+                        new String[]{"\"Программист-+\"", "А к       иВаНов"}, //в ФИО символы в разных регистрах
                         new String[]{"Идиоты", "Петр Петрович Петров"}
                 }),
                 new String[]{
@@ -41,13 +44,16 @@ public class Lesson5_StringsTest {
                         "\"Фантастика\" Ф. Н. Ковров",
                         "\"Считалочка\" С. Н. Тестов",
                         "\"Программист\" А. К. Иванов",
+                        "\"Программист++\" А. К. Иванов",
+                        "\"Программист--\" А. К. Иванов",
+                        "\"Программист-+\" А. К. Иванов",
                         "\"Идиоты\" П. П. Петров",
                 }
         );
     }
 
     @Test
-    void task3test(String str) {
+    void task3test() {
         assertEquals(task3("Java 6 for all time", 'f', 'e'), "or all tim");
         assertEquals(task3("Java 6 for all time", '6', 't'), " for all ");
         assertEquals(task3("Java 6 for all time", 'y', 'e'), "");
