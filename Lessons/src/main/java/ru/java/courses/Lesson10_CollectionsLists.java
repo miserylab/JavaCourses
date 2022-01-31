@@ -1,9 +1,6 @@
 package ru.java.courses;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class Lesson10_CollectionsLists {
 
@@ -19,9 +16,23 @@ public class Lesson10_CollectionsLists {
      * Удалять элементы из итерируемого списка нельзя - выпадет исключение
      */
     public static List<String> task1(List<Integer> source) {
-        // свой код нужно писать тут
-        // следующую строку можно удалять
-        return null;
+
+        List<Integer> noDuplicatesList = new ArrayList<>(source.size());
+
+        for (Integer i : source) {
+            if (!noDuplicatesList.contains(i)) {
+                noDuplicatesList.add(i);
+            }
+        }
+
+        Collections.sort(noDuplicatesList);
+
+        List<String> sourseToString = new ArrayList<>(noDuplicatesList.size());
+        for (Integer i : noDuplicatesList) {
+            sourseToString.add(i.toString());
+        }
+
+        return sourseToString;
     }
 
     /**
@@ -34,8 +45,25 @@ public class Lesson10_CollectionsLists {
      * Подсказка: на входе может быть любое количество чисел
      */
     public static List<Integer> task2(Integer... array) {
-        // свой код нужно писать тут
-        // следующую строку можно удалять
-        return null;
+
+        int startPos = 3;
+        int endPos = 7;
+
+        List<Integer> arrayToList = new ArrayList<>(array.length);
+        arrayToList.addAll(Arrays.asList(array));
+        Integer temp;
+        for (int i = 0; i < arrayToList.size(); i++) {
+            temp = arrayToList.get(i);
+            if (temp % 2 == 0) {
+                arrayToList.set(i, ++temp);
+            }
+        }
+
+        List<Integer> threeToSeven = new ArrayList<>(arrayToList.size());
+        for (int i = startPos; i < arrayToList.size() && i <= endPos; i++) {
+            threeToSeven.add(arrayToList.get(i));
+        }
+        return threeToSeven;
+
     }
 }
