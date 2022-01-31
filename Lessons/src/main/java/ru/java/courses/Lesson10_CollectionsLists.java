@@ -20,9 +20,10 @@ public class Lesson10_CollectionsLists {
         List<String> sourseToString = new ArrayList<>(source.size());
         Collections.sort(source);
 
-        for (Integer i : source) {
-            if (!sourseToString.contains(i.toString())) {
-                sourseToString.add(i.toString());
+        sourseToString.add(source.get(0).toString());
+        for (int i = 1; i < source.size(); i++) {
+            if (!source.get(i).equals(source.get(i-1))) {
+                sourseToString.add(source.get(i).toString());
             }
         }
 
