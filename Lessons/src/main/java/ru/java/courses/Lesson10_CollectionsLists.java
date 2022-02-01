@@ -17,6 +17,11 @@ public class Lesson10_CollectionsLists {
      */
     public static List<String> task1(List<Integer> source) {
 
+        //если source пустой, возвращаем пустой список
+        if (source == null || source.isEmpty()) {
+            return Collections.emptyList();
+        }
+
         List<String> sourseToString = new ArrayList<>(source.size());
         Collections.sort(source);
 
